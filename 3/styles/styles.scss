@@ -1,0 +1,501 @@
+@import "variables.scss";
+
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+    background: #e3e3e3;
+}
+*::-webkit-scrollbar-thumb {
+  background-color:  #644403;
+  border-radius: 7px;
+  border: 0px none #ffffff;
+}
+
+
+
+@mixin center() {
+  display: flex;
+  align-items: center;
+}
+@mixin width($width) {
+  max-width: $width;
+  width: 100%;
+}
+@mixin bcg($bcg) {
+  display: flex;
+  background-image: url($bcg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  font-family: Roboto;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 72px;
+  color: white;
+}
+
+h2 {
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 56px;
+}
+
+h4 {
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: bold;
+  font-weight: 400;
+  line-height: 33.6px;
+}
+
+h5 {
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26.4px;
+  color: white;
+}
+
+h6 {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21.6px;
+}
+
+.nav {
+  @include center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $headerheight;
+  z-index: 100;
+  padding: 0 3% 0;
+  background-color: #000000;
+  color: white;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+
+  & a {
+    display: block;
+    padding: 2em;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+  }
+
+  &__menu,
+  &__logo,
+  &__auth {
+    @include center;
+  }
+
+  &__menu {
+    &__link {
+      height: 100%;
+      &:hover {
+        background-color: #525050;
+      }
+      &:active {
+        background-color: $hover-color;
+        transform: scale(0.9);
+      }
+    }
+    &__button {
+      width: 110px;
+    }
+  }
+}
+
+.button {
+  @include center;
+  justify-content: center;
+  gap: 4px;
+  height: $headerheight;
+  max-width: 120px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s;
+  background-color: white;
+  border-radius: 20px;
+
+  &:hover {
+    background-color: #dfcead;
+    color: #644403;
+  }
+  &:active {
+    background-color: $hover-color;
+    transform: scale(0.9);
+    box-shadow: 0 0 10px black;
+    gap: 4px;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 20px;
+  max-width: 500px;
+  gap: 20px;
+
+  &__image {
+    @include bcg("../images/1.png");
+    height: 700px;
+  }
+
+  &__menu {
+    display: flex;
+    margin-top: 90px;
+    gap: 49px;
+
+    & a {
+      text-decoration: none;
+      color: white;
+      font-family: Roboto;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 900;
+    }
+  }
+  &__button {
+    @include center;
+    justify-content: center;
+    background-color: white;
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: auto;
+  padding: 40px;
+  height: fit-content;
+  background-color: #f2f2f2;
+
+  &__logo {
+    height: 34px;
+    padding-top: 10px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 60px auto;
+
+    &-item {
+      max-width: 400px;
+
+      & img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.info {
+  @include bcg("../images/2.jpg");
+  @include center();
+  flex-direction: column;
+  text-align: center;
+  max-height: 400px;
+  height: 100%;
+  background-position: center;
+  gap: 20px;
+  padding: 15px;
+  h2 {
+    color: #fff;
+  }
+
+  &__button {
+    width: 80px;
+    &::after {
+      content: "";
+      background-image: url(../images/4.png);
+      background-size: cover;
+      height: 20px;
+      width: 20px;
+    }
+    &:hover::after {
+      animation: spin 5s linear 0s infinite;
+    }
+  }
+}
+.article {
+  @include center;
+  @include width(573px);
+  flex-direction: column;
+  margin: 10px auto;
+  gap: 22px;
+  text-align: center;
+}
+
+.h3 {
+  color: #fff;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21.6px; /* 120% */
+  text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+
+.price {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px;
+  gap: 40px;
+
+  &__package{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    &-list{
+      border-bottom: $hover-color 0.5px solid;
+    }
+  }
+
+  &__options, &__package-list{
+    display: flex;
+    justify-content: space-around;
+
+    &__pay {
+      color: $hover-color;
+      max-height: 60px;
+    }
+    &__plans {
+      display: flex;
+      gap: 80px;
+
+      &__opt {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 93px;
+        text-align: center;
+
+        &-name {
+          color: #000;
+          text-align: center;
+          font-family: Roboto;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 26.4px; /* 120% */
+        }
+        &-tag {
+          color: #000;
+          text-align: center;
+          font-family: Roboto;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 32px; /* 100% */
+        }
+        &-reg {
+          color: #000;
+          text-align: center;
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16.08px; /* 134% */
+        }
+        &-sale {
+          color: #0888c8;
+          text-align: center;
+          font-family: Roboto;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16.08px; /* 134% */
+        }
+      }
+    }
+  }
+  &__package{
+    &-list{
+      display: flex;
+
+    }
+  }
+}
+
+input[type="radio"]:checked + label {
+  font-weight: 600;
+  color: #000000;
+}
+
+
+
+.nav__button {
+  display: none;
+}
+#icon {
+  display: none;
+}
+
+.drop {
+  display: flex;
+}
+@media screen and (max-width: 920px) {
+  .options__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .nav a {
+    padding: 1em;
+  }
+}
+@media screen and (max-width: 720px) {
+  .nav__logo a {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  #icon {
+    display: flex;
+  }
+  .nav {
+    padding-left: 0px;
+    &__button {
+      display: flex;
+      border-radius: 0%;
+    }
+    &__menu,
+    &__auth {
+      display: none;
+    }
+  }
+  .drop {
+    &__menu {
+      order: -1;
+      &:hover .nav__menu {
+        display: block;
+        position: absolute;
+        top: $headerheight;
+        background-color: #000;
+      }
+    }
+  }
+  .options {
+    padding: 20px;
+    &__main_header2 {
+      font-size: 20px;
+    }
+    &-header {
+      font-size: 20px;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    line-height: normal;
+  }
+  h2 {
+    font-size: 40px;
+    line-height: normal;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  .nav {
+    height: 50px;
+    &__button {
+      height: 50px;
+    }
+  }
+  .drop {
+    &__menu {
+      order: -1;
+      &:hover .nav__menu {
+        display: block;
+        position: absolute;
+        top: 50px;
+        background-color: #000;
+      }
+    }
+  }
+
+  .main {
+    &__image {
+      height: 600px;
+    }
+  }
+  .options__menu {
+    margin-top: 20px;
+  }
+  .price {
+    padding: 30px 10px;
+    &__options {
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      &__plans {
+        flex-direction: column;
+        gap: 25px;
+      padding-top: 20px;
+
+        &__opt {
+          margin-top: 10px;
+          gap: 5px;
+        }
+    }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h5 {
+    font-size: 13px;
+  }
+  h4{
+    font-size: 15px;
+  }
+  h6{
+    font-size: 14px;
+  }
+}
